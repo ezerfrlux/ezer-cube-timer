@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export function useTimer() {
   const [time, setTime] = useState(0);
@@ -36,6 +36,15 @@ export function useTimer() {
     setTime(0);
     setRunning(false);
   };
+
+
+  useEffect(() => {
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current)
+      }
+    }
+  },[])
 
   return {
     time,
