@@ -19,7 +19,15 @@ export function useTimer() {
     setRunning(true);
   };
 
-  const stop = () => {};
+  const stop = () => {
+    if (!running) return;
+
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+    }
+
+    setRunning(false);
+  };
 
   const reset = () => {};
 
