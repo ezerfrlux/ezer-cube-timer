@@ -29,7 +29,13 @@ export function useTimer() {
     setRunning(false);
   };
 
-  const reset = () => {};
+  const reset = () => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+    }
+    setTime(0);
+    setRunning(false);
+  };
 
   return {
     time,
