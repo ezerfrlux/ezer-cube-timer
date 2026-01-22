@@ -8,9 +8,13 @@ export function useTimer() {
   const startTimeRef = useRef<number>(0);
 
   const start = () => {
-    if (running) return;
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current)
+    }
 
-    startTimeRef.current = Date.now() - time;
+    setTime(0)
+
+    startTimeRef.current = Date.now();
 
     intervalRef.current = window.setInterval(() => {
       setTime(Date.now() - startTimeRef.current);
@@ -37,14 +41,13 @@ export function useTimer() {
     setRunning(false);
   };
 
-
   useEffect(() => {
     return () => {
       if (intervalRef.current) {
-        clearInterval(intervalRef.current)
+        clearInterval(intervalRef.current);
       }
-    }
-  },[])
+    };
+  }, []);
 
   return {
     time,
