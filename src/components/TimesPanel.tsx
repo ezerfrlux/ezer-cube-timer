@@ -8,7 +8,7 @@ const TimesPanel = ({ solves = [] }: Props) => {
     const seconds = Math.floor((ms % 60000) / 1000);
     const centiseconds = Math.floor((ms % 1000) / 10);
 
-    return `${minutes.toString().padStart(2, "0")}:${seconds
+    return `${seconds
       .toString()
       .padStart(2, "0")}.${centiseconds.toString().padStart(2, "0")}`;
   };
