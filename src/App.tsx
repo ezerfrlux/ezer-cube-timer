@@ -5,8 +5,7 @@ import { useTimer } from "./hooks/useTimer";
 import TimesPanel from "./components/TimesPanel";
 
 function App() {
-  const [solves, setSolves] = useState<number[]>([]);
-  const { time, running, start, stop } = useTimer();
+  const { time, running, start, stop, solves, setSolves,deleteSolve } = useTimer();
 
   const formatTime = (ms: number) => {
     const minutes = Math.floor(ms / 60000);
@@ -23,14 +22,12 @@ function App() {
 
   useEffect(() => {
     const handleKeyPress = (event: KeyboardEvent) => {
-      // Evitamos que el evento se repita si mantienes presionada la tecla
       if (event.repeat) return;
 
       if (event.code === "Space") {
         event.preventDefault();
 
         if (running) {
-          // Importante: Usamos una función que detenga y guarde
           handleStop();
         } else {
           start();
@@ -46,13 +43,11 @@ function App() {
   }, [running, start, stop]);
   return (
     <div className="min-h-screen grid grid-cols-[260px_1fr] bg-background">
-      <TimesPanel solves={solves} />
+      <TimesPanel solves={solves} onDelete={deleteSolve} />
       <main className="flex flex-col items-center justify-center p-8">
         <h1 className="mb-8 font-mono font-bold tracking-tighter text-7xl text-primary">
           {formatTime(time)}
         </h1>
-
-
       </main>
     </div>
   );

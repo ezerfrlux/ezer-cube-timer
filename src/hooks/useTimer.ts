@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from "react";
 
 export function useTimer() {
   const [time, setTime] = useState(0);
+  const [solves, setSolves] = useState<number[]>([]);
+
   const [running, setRunning] = useState(false);
 
   const intervalRef = useRef<number | null>(null);
@@ -9,10 +11,9 @@ export function useTimer() {
 
   const start = () => {
     if (intervalRef.current) {
-      clearInterval(intervalRef.current)
+      clearInterval(intervalRef.current);
     }
-
-    setTime(0)
+    setTime(0);
 
     startTimeRef.current = Date.now();
 
@@ -23,21 +24,10 @@ export function useTimer() {
     setRunning(true);
   };
 
-  const stop = () => {
+const stop = () => {
     if (!running) return;
-
-    if (intervalRef.current) {
-      clearInterval(intervalRef.current);
-    }
-
-    setRunning(false);
-  };
-
-  const reset = () => {
-    if (intervalRef.current) {
-      clearInterval(intervalRef.current);
-    }
-    setTime(0);
+    if (intervalRef.current) clearInterval(intervalRef.current);
+    
     setRunning(false);
   };
 
@@ -49,11 +39,17 @@ export function useTimer() {
     };
   }, []);
 
+  const deleteSolve = (indexToDelete: number) => {
+    setSolves((prev) => prev.filter((_, index) => index !== indexToDelete));
+  };
+
   return {
+    solves,
+    setSolves,
     time,
     running,
     start,
     stop,
-    reset,
+    deleteSolve,
   };
 }
