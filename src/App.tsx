@@ -17,11 +17,10 @@ function App() {
     return `${minutes}:${seconds.toString().padStart(2, "0")}.${centiseconds.toString().padStart(2, "0")}`;
   };
 
-  // Usamos useCallback para que no se recree en cada render
   const handleStop = useCallback(() => {
     stop();
     setSolves((prev) => [time, ...prev]);
-    generateNewScramble(); // <--- Generar nuevo scramble al terminar
+    generateNewScramble(); 
   }, [stop, time, setSolves, generateNewScramble]);
 
   useEffect(() => {
@@ -46,7 +45,6 @@ function App() {
       if (event.code === "Space") {
         event.preventDefault();
 
-        // Solo empezamos si NO estaba corriendo y si venimos de un keyDown válido
         if (!running && isReady) {
           start();
           setIsReady(false);
@@ -68,16 +66,13 @@ function App() {
 
   return (
     <div className="min-h-screen grid grid-cols-[300px_1fr] bg-[#0c0c0e] text-[#e4e4e7] selection:bg-primary/30">
-      {/* Panel Lateral con un toque de Blur o borde sutil */}
       <aside className="border-r border-white/5 bg-black/20 backdrop-blur-md">
         <TimesPanel solves={solves} onDelete={deleteSolve} />
       </aside>
 
       <main className="relative flex flex-col items-center justify-center p-12 overflow-hidden">
-        {/* Decoración de fondo sutil (Opcional) */}
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
 
-        {/* Contenedor del Scramble */}
         <div
           className={`w-full max-w-4xl transition-all duration-500 ease-in-out ${
             running
@@ -105,7 +100,6 @@ function App() {
           </div>
         </div>
 
-        {/* Timer Principal */}
         <div className="flex flex-col items-center mt-20 mb-12">
           <h1
             className={`font-mono font-black tracking-tighter text-[10rem] tabular-nums transition-all duration-300 ${
@@ -119,7 +113,6 @@ function App() {
             {formatTime(time)}
           </h1>
 
-          {/* Atajo de teclado / Status */}
           <div
             className={`flex items-center gap-3 px-4 py-2 rounded-full border border-white/5 bg-white/5 transition-opacity duration-500 ${running ? "opacity-0" : "opacity-100"}`}
           >
