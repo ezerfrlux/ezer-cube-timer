@@ -1,7 +1,12 @@
-# Tauri + React + Typescript
+# Ezer Cube Timer
 
-This template should help get you started developing with Tauri, React and Typescript in Vite.
+## A rubik cube timer with a modern interface multi-platform
 
-## Recommended IDE Setup
+<img src="./public//logo.png" width="250" />
 
-- [VS Code](https://code.visualstudio.com/) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
+### Features
+- Minimalist Design 
+- Lightweight thanks to the Tauri framework
+- Cross-Platform: Available for Linux(AppImage/Deb)/ Windows, macOS and Web
+- Open Source
+
