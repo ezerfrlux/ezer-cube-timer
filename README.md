@@ -50,3 +50,33 @@ npm run tauri build
 ./src-tauri/target/release/bundle/nsis
 ```
 
+### Devlopment
+
+#### If you want to contribute or build it from source, follow these steps:
+
+1. __Clone the repo__
+
+```
+git clone https://github.com/ezerfrlux/ezer-cube-timer.git
+```
+
+2. __Download dependencies__
+```
+npm install
+```
+
+3. __Run in dev mode__
+```
+npm run tauri dev
+```
+
+4. __Build for production__
+```
+npm run tauri build
+```
+
+### Contributing
+Contributions are welcome! Feel free to open an issue or submit a pull request to improve the timer.
+
+#### License 
+This project  is licesed under the __MIT License__ .
