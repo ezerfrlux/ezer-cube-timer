@@ -13,7 +13,9 @@
 
 ### Installation
 
-#### Linux (Arch, Ubuntu, etc)
+#### Linux 
+
+1. ####  AppImage (Universal)
 
 Download the latest __.AppImage__ from the<a href="https://github.com/ezerfrlux/ezer-cube-timer/releases/tag/1.0.0">
 Releases</a> page
@@ -26,6 +28,34 @@ Execute the image
 ```
 ./ezer-cube-timer_0.1.0_amd64.AppImage
 ```
+
+2. #### Debian / Ubuntu ( .deb )
+
+Recommended for __Debian-based__ systems
+
+```
+sudo dpkg -i ezer-cube-timer_0.1.0_amd64.deb
+```
+```
+sudo apt-get install -f
+```
+
+3. #### Fedora / Red Hat / SUSE (.rpm)
+Recommended for __RHEL-based__ systems
+```
+sudo rpm -i ezer-cube-timer-0.1.0-1.x86_64.rpm
+```
+
+4. #### Arch Linux
+Since you are likely using the AppImage or building from source:
+* __Option A__:  Use the AppImage as shown above.
+* __Option B__: Build manually:
+```
+npm install & npm run tauri build
+```
+
+
+
 
 #### Windows
 
