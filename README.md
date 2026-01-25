@@ -2,7 +2,10 @@
 
 ## A rubik cube timer with a modern interface multi-platform
 
+
+<img src="./public/screenshot.png" width="1000"/>
 <img src="./public//logo.png" width="250" />
+
 
 ### Features
 -  __Minimalist Design__
