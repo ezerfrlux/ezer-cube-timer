@@ -13,5 +13,5 @@
 
 ### Installation
 #### Linux (Arch, Ubuntu, etc)
-Download the latest .AppImage from the <a href="/releases/tag/1.0.0">
+Download the latest .AppImage from the <a href="https://github.com/ezerfrlux/ezer-cube-timer/releases/tag/1.0.0">
 Releases</a> page
